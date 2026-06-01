@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8" />
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0" />
+
+    <title>
+        Cardnet Tokenización Pro
+    </title>
+
+    <script
+        type="text/javascript"
+        src="https://labservicios.cardnet.com.do/servicios/tokens/v1/Scripts/PWCheckout.js?key=3-whMGoDQeLbIZPYm9KZvW_I56ONV7HQ">
+    </script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+
+        * {
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+        }
+
+        body {
+
+            font-family: 'Poppins', sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0f172a,
+                    #111827,
+                    #1e293b
+                );
+
+            min-height: 100vh;
+
+            padding: 30px;
+
+            color: white;
+        }
+
+        .container {
+
+            max-width: 1300px;
+
+            margin: auto;
+        }
+
+        .header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 30px;
+
+            flex-wrap: wrap;
+        }
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+        .logo-icon {
+
+            width: 70px;
+
+            height: 70px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 30px;
+
+            box-shadow:
+                0px 10px 30px
+                rgba(37,99,235,0.4);
+        }
+
+        .title h1 {
+
+            font-size: 32px;
+
+            font-weight: 700;
+        }
+
+        .title p {
+
+            color: #cbd5e1;
+
+            margin-top: 5px;
+        }
+
+        .top-status {
+
+            display: flex;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .status-box {
+
+            flex: 1;
+
+            min-width: 200px;
+
+            background:
+                rgba(255,255,255,0.06);
+
+            backdrop-filter: blur(12px);
+
+            border-radius: 20px;
+
+            padding: 20px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+        }
+
+        .status-box h3 {
+
+            font-size: 14px;
+
+            color: #cbd5e1;
+        }
+
+        .status-box p {
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            margin-top: 10px;
+        }
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .card {
+
+            background:
+                rgba(255,255,255,0.06);
+
+            backdrop-filter: blur(16px);
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            box-shadow:
+                0px 10px 40px
+                rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+
+            margin-bottom: 20px;
+
+            font-size: 22px;
+        }
+
+        .input-group {
+
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #cbd5e1;
+
+            font-size: 14px;
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border-radius: 14px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.1);
+
+            background:
+                rgba(255,255,255,0.08);
+
+            color: white;
+
+            outline: none;
+
+            font-size: 15px;
+
+            transition: 0.3s;
+        }
+
+        input:focus {
+
+            border-color: #3b82f6;
+
+            box-shadow:
+                0px 0px 15px
+                rgba(59,130,246,0.4);
+        }
+
+        input::placeholder {
+
+            color: #94a3b8;
+        }
+
+        .btn {
+
+            border: none;
+
+            padding: 15px;
+
+            border-radius: 14px;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            margin-top: 10px;
+
+            color: white;
+        }
+
+        .btn:disabled {
+
+            opacity: 0.7;
+
+            cursor: not-allowed;
+        }
+
+        .full-width {
+
+            width: 100%;
+        }
+
+        .btn-primary {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #06b6d4
+                );
+        }
+
+        .btn-primary:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0px 10px 20px
+                rgba(37,99,235,0.4);
+        }
+
+        .btn-success {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #16a34a,
+                    #22c55e
+                );
+        }
+
+        .btn-warning {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #f59e0b,
+                    #facc15
+                );
+
+            color: black;
+        }
+
+        .result-box {
+
+            margin-top: 20px;
+
+            background:
+                rgba(0,0,0,0.2);
+
+            padding: 18px;
+
+            border-radius: 15px;
+        }
+
+        .cards-area {
+
+            margin-top: 30px;
+        }
+
+        .cards-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fill,
+                    minmax(320px,1fr)
+                );
+
+            gap: 20px;
+        }
+
+        .credit-card {
+
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            min-height: 250px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1d4ed8,
+                    #2563eb,
+                    #06b6d4
+                );
+
+            box-shadow:
+                0px 15px 35px
+                rgba(0,0,0,0.35);
+
+            transition: 0.3s;
+
+            border: 3px solid transparent;
+        }
+
+        .selected-card {
+
+            border: 3px solid #facc15;
+
+            transform: scale(1.02);
+        }
+
+        .favorite-badge {
+
+            position: absolute;
+
+            top: 18px;
+
+            right: 18px;
+
+            background: gold;
+
+            color: black;
+
+            font-weight: bold;
+
+            padding: 6px 12px;
+
+            border-radius: 50px;
+
+            font-size: 12px;
+        }
+
+        .chip {
+
+            width: 70px;
+
+            height: 50px;
+
+            border-radius: 12px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fde68a,
+                    #f59e0b
+                );
+
+            margin-top: 20px;
+        }
+
+        .card-number {
+
+            font-size: 22px;
+
+            letter-spacing: 4px;
+
+            margin-top: 25px;
+
+            font-weight: 600;
+        }
+
+        .card-footer {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            margin-top: 25px;
+        }
+
+        .status {
+
+            padding: 6px 12px;
+
+            border-radius: 50px;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-top: 5px;
+
+            display: inline-block;
+        }
+
+        .active {
+
+            background:
+                rgba(34,197,94,0.2);
+
+            color: #bbf7d0;
+        }
+
+        .inactive {
+
+            background:
+                rgba(239,68,68,0.2);
+
+            color: #fecaca;
+        }
+
+        .card-actions {
+
+            margin-top: 20px;
+
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .purchase-box {
+
+            margin-top: 30px;
+        }
+
+        .purchase-input {
+
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+        }
+
+        .purchase-input input {
+
+            flex: 1;
+        }
+
+        .purchase-input button {
+
+            width: auto;
+
+            min-width: 140px;
+
+            margin-top: 0;
+        }
+
+        /* =========================
+           LOADER
+        ========================= */
+
+        .loading-overlay {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,0.7);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+
+            z-index: 9999;
+
+            backdrop-filter: blur(8px);
+
+            visibility: hidden;
+
+            opacity: 0;
+
+            transition: 0.3s;
+        }
+
+        .loading-overlay.show {
+
+            visibility: visible;
+
+            opacity: 1;
+        }
+
+        .loader {
+
+            width: 90px;
+            height: 90px;
+
+            border: 8px solid rgba(255,255,255,0.2);
+
+            border-top: 8px solid #06b6d4;
+
+            border-radius: 50%;
+
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+
+            100% {
+
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading-text {
+
+            margin-top: 20px;
+
+            font-size: 20px;
+
+            font-weight: 600;
+        }
+
+        .success-animation {
+
+            font-size: 90px;
+
+            color: #22c55e;
+
+            animation: pop 0.5s ease;
+        }
+
+        @keyframes pop {
+
+            0% {
+
+                transform: scale(0);
+            }
+
+            100% {
+
+                transform: scale(1);
+            }
+        }
+
+        @media(max-width: 900px) {
+
+            .grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            body {
+
+                padding: 15px;
+            }
+
+            .purchase-input {
+
+                flex-direction: column;
+            }
+
+            .purchase-input button {
+
+                width: 100%;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- LOADER -->
+
+    <div
+        class="loading-overlay"
+        id="loadingOverlay">
+
+        <div id="loadingContent">
+
+            <div class="loader"></div>
+
+            <div class="loading-text">
+
+                Procesando compra...
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+
+                    <i class="fa-solid fa-credit-card"></i>
+
+                </div>
+
+                <div class="title">
+
+                    <h1>
+                        Cardnet Tokenización
+                    </h1>
+
+                    <p>
+                        Plataforma 
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- STATS -->
+
+        <div class="top-status">
+
+            <div class="status-box">
+
+                <h3>
+                    Tarjetas Registradas
+                </h3>
+
+                <p id="totalCards">
+                    0
+                </p>
+
+            </div>
+
+            <div class="status-box">
+
+                <h3>
+                    Tarjetas Activas
+                </h3>
+
+                <p id="activeCards">
+                    0
+                </p>
+
+            </div>
+
+            <div class="status-box">
+
+                <h3>
+                    Tarjeta Seleccionada
+                </h3>
+
+                <p id="selectedCard">
+                    Ninguna
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- GRID -->
+
+        <div class="grid">
+
+            <!-- CUSTOMER -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Crear Customer
+
+                </h2>
+
+                <div class="input-group">
+
+                    <label>
+                        Correo Electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="ejemplo@correo.com" />
+
+                </div>
+
+                <button
+                    class="btn btn-primary full-width"
+                    onclick="crearCustomer()">
+
+                    Crear Customer
+
+                </button>
+
+                <div
+                    class="result-box"
+                    id="resultado">
+
+                    Esperando información...
+
+                </div>
+
+            </div>
+
+            <!-- REGISTRO -->
+
+            <div class="card">
+
+                <h2>
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Registrar Tarjeta
+
+                </h2>
+
+                <form id="form_1">
+
+                    <input
+                        type="hidden"
+                        name="PWToken"
+                        id="PWToken" />
+
+                    <button
+                        type="button"
+                        id="btnCheckout"
+                        class="btn btn-success full-width">
+
+                        Registrar Nueva Tarjeta
+
+                    </button>
+
+                </form>
+
+                <!-- COMPRA -->
+
+                <div class="purchase-box">
+
+                    <h2>
+
+                        <i class="fa-solid fa-cart-shopping"></i>
+
+                        Realizar Compra
+
+                    </h2>
+
+                    <div class="purchase-input">
+
+                        <input
+                            type="number"
+                            id="amount"
+                            value="100"
+                            placeholder="Monto" />
+
+                        <button
+                            class="btn btn-primary"
+                            id="payBtn"
+                            onclick="realizarCompra()">
+
+                            <i class="fa-solid fa-money-bill"></i>
+
+                            Pagar
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- TARJETAS -->
+
+        <div class="cards-area">
+
+            <h2 style="margin-bottom:20px;">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                Tarjetas Registradas
+
+            </h2>
+
+            <div
+                class="cards-grid"
+                id="cardsContainer">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        let customerId = "";
+
+        let UniqueId = "";
+
+        let selectedCardIndex = null;
+
+        let cards = [];
+
+        const captureUrl =
+            "https://labservicios.cardnet.com.do/servicios/tokens/v1/Capture/";
+
+        // =========================
+        // STATS
+        // =========================
+
+        function updateStats() {
+
+            document.getElementById(
+                "totalCards"
+            ).innerText =
+                cards.length;
+
+            document.getElementById(
+                "activeCards"
+            ).innerText =
+                cards.filter(
+                    c => c.active
+                ).length;
+
+            document.getElementById(
+                "selectedCard"
+            ).innerText =
+                selectedCardIndex !== null
+                    ? `#${selectedCardIndex + 1}`
+                    : "Ninguna";
+        }
+
+        // =========================
+        // TOKEN
+        // =========================
+
+        function OnTokenReceived(token) {
+
+            console.log(token);
+
+            if (token && token.TokenId) {
+
+                document.getElementById(
+                    "PWToken"
+                ).value =
+                    token.TokenId;
+
+                cards.push({
+
+                    token:
+                        token.TokenId,
+
+                    brand:
+                        token.Brand ||
+                        token.CardType ||
+                        "CARD",
+
+                    last4:
+                        token.Last4 ||
+                        "0000",
+
+                    active:
+                        false,
+
+                    favorite:
+                        false
+                });
+
+                renderCards();
+
+                alert(
+                    "Tarjeta registrada correctamente"
+                );
+
+            } else {
+
+                alert(
+                    "Token inválido"
+                );
+            }
+        }
+
+        // =========================
+        // RENDER CARDS
+        // =========================
+
+        function renderCards() {
+
+            let html = "";
+
+            cards.forEach((card, index) => {
+
+                html += `
+
+                <div class="credit-card
+                    ${
+                        selectedCardIndex === index
+                        ? 'selected-card'
+                        : ''
+                    }">
+
+                    ${
+                        card.favorite
+                        ? '<div class="favorite-badge">FAVORITA</div>'
+                        : ''
+                    }
+
+                    <div style="
+                        display:flex;
+                        justify-content:space-between;
+                    ">
+
+                        <h3>
+                            ${card.brand}
+                        </h3>
+
+                    </div>
+
+                    <div class="chip"></div>
+
+                    <div class="card-number">
+
+                        **** **** **** ${card.last4}
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <div>
+
+                            <small>
+                                Estado
+                            </small>
+
+                            <div class="status
+                                ${
+                                    card.active
+                                    ? 'active'
+                                    : 'inactive'
+                                }">
+
+                                ${
+                                    card.active
+                                    ? 'ACTIVA'
+                                    : 'INACTIVA'
+                                }
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card-actions">
+
+                        <button
+                            class="btn btn-primary full-width"
+                            onclick="seleccionarTarjeta(${index})">
+
+                            Seleccionar
+
+                        </button>
+
+                        <button
+                            class="btn btn-warning full-width"
+                            onclick="hacerFavorita(${index})">
+
+                            Favorita
+
+                        </button>
+
+                        <input
+                            type="text"
+                            id="activation_${index}"
+                            placeholder="Código activación" />
+
+                        <button
+                            class="btn btn-success full-width"
+                            onclick="activarToken(${index})">
+
+                            Activar
+
+                        </button>
+
+                    </div>
+
+                </div>
+                `;
+            });
+
+            document.getElementById(
+                "cardsContainer"
+            ).innerHTML = html;
+
+            updateStats();
+        }
+
+        // =========================
+        // SELECCIONAR
+        // =========================
+
+        function seleccionarTarjeta(index) {
+
+            selectedCardIndex = index;
+
+            renderCards();
+
+            alert(
+                "Tarjeta seleccionada"
+            );
+        }
+
+        // =========================
+        // FAVORITA
+        // =========================
+
+        function hacerFavorita(index) {
+
+            cards.forEach(card => {
+
+                card.favorite = false;
+            });
+
+            cards[index].favorite = true;
+
+            renderCards();
+
+            alert(
+                "Tarjeta favorita actualizada"
+            );
+        }
+
+        // =========================
+        // CUSTOMER
+        // =========================
+
+        async function crearCustomer() {
+
+            try {
+
+                const email =
+                    document.getElementById(
+                        "email"
+                    ).value;
+
+                if (!email) {
+
+                    alert(
+                        "Digite un correo"
+                    );
+
+                    return;
+                }
+
+                const response =
+                    await fetch(
+                        "/create-customer",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                email
+                            })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!data.Response) {
+
+                    alert(
+                        "Error creando customer"
+                    );
+
+                    return;
+                }
+
+                customerId =
+                    data.Response.CustomerId;
+
+                const getResponse =
+                    await fetch(
+                        "/customer/" +
+                        customerId
+                    );
+
+                const getData =
+                    await getResponse.json();
+
+                UniqueId =
+                    getData.Response.UniqueID;
+
+                document.getElementById(
+                    "resultado"
+                ).innerHTML = `
+
+                    <p>
+                        <b>CustomerId:</b>
+                        ${customerId}
+                    </p>
+
+                    <br>
+
+                    <p>
+                        <b>UniqueID:</b>
+                        ${UniqueId}
+                    </p>
+                `;
+
+                alert(
+                    "Customer creado correctamente"
+                );
+
+            } catch (error) {
+
+                console.log(error);
+
+                alert(
+                    "Error creando customer"
+                );
+            }
+        }
+
+        // =========================
+        // CHECKOUT
+        // =========================
+
+        document
+            .getElementById(
+                "btnCheckout"
+            )
+            .addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    if (!UniqueId) {
+
+                        alert(
+                            "Primero cree el customer"
+                        );
+
+                        return;
+                    }
+
+                    PWCheckout.Bind(
+                        "tokenCreated",
+                        OnTokenReceived
+                    );
+
+                    PWCheckout.SetProperties({
+
+                        "name":
+                            "Demo Test.",
+
+                        "email":
+                            "",
+
+                        "image":
+                            "https://www.cardnet.com.do/capp/images/logo_nuevo_x_2.png",
+
+                        "button_label":
+                            "Registrar Tarjeta",
+
+                        "description":
+                            "Cardnet Test.",
+
+                        "currency":
+                            "DOP",
+
+                        "amount":
+                            "1",
+
+                        "lang":
+                            "ESP",
+
+                        "form_id":
+                            "form_1",
+
+                        "checkout_card":
+                            1,
+
+                        "autoSubmit":
+                            "false",
+
+                        "empty":
+                            "false"
+                    });
+
+                    PWCheckout.OpenIframeCustom(
+
+                        captureUrl +
+
+                        "?key=" +
+
+                        "3-whMGoDQeLbIZPYm9KZvW_I56ONV7HQ"
+
+                        +
+
+                        "&session_id=" +
+
+                        UniqueId,
+
+                        UniqueId
+                    );
+
+                }
+            );
+
+        // =========================
+        // ACTIVAR
+        // =========================
+
+        async function activarToken(index) {
+
+            try {
+
+                const card =
+                    cards[index];
+
+                const activationCode =
+                    document.getElementById(
+                        "activation_" + index
+                    ).value;
+
+                if (!activationCode) {
+
+                    alert(
+                        "Digite código activación"
+                    );
+
+                    return;
+                }
+
+                const response =
+                    await fetch(
+                        "/activate-token",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                customerId:
+                                    customerId,
+
+                                token:
+                                    card.token,
+
+                                activationCode:
+                                    activationCode
+                            })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (
+                    data.enabled === true
+                ) {
+
+                    card.active = true;
+
+                    renderCards();
+
+                    alert(
+                        "Tarjeta activada correctamente"
+                    );
+
+                } else {
+
+                    alert(
+                        "Código incorrecto"
+                    );
+                }
+
+            } catch (error) {
+
+                console.log(error);
+
+                alert(
+                    "Error activando token"
+                );
+            }
+        }
+
+        // =========================
+        // COMPRA
+        // =========================
+
+        async function realizarCompra() {
+
+            try {
+
+                const amount =
+                    document.getElementById(
+                        "amount"
+                    ).value;
+
+                const payBtn =
+                    document.getElementById(
+                        "payBtn"
+                    );
+
+                if (selectedCardIndex === null) {
+
+                    alert(
+                        "Seleccione una tarjeta"
+                    );
+
+                    return;
+                }
+
+                const card =
+                    cards[selectedCardIndex];
+
+                if (!card.active) {
+
+                    alert(
+                        "La tarjeta no está activa"
+                    );
+
+                    return;
+                }
+
+                // =========================
+                // LOADER
+                // =========================
+
+                const overlay =
+                    document.getElementById(
+                        "loadingOverlay"
+                    );
+
+                const loadingContent =
+                    document.getElementById(
+                        "loadingContent"
+                    );
+
+                overlay.classList.add(
+                    "show"
+                );
+
+                payBtn.disabled = true;
+
+                payBtn.innerHTML = `
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    Procesando...
+                `;
+
+                // =========================
+                // REQUEST
+                // =========================
+
+                const response =
+                    await fetch(
+                        "/purchase",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                token:
+                                    card.token,
+
+                                amount:
+                                    amount
+                            })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                console.log(data);
+
+                // =========================
+                // SUCCESS
+                // =========================
+
+                loadingContent.innerHTML = `
+
+                    <div class="success-animation">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+                    <div class="loading-text">
+
+                        ¡Compra realizada correctamente!
+
+                    </div>
+                `;
+
+                setTimeout(() => {
+
+                    overlay.classList.remove(
+                        "show"
+                    );
+
+                    loadingContent.innerHTML = `
+
+                        <div class="loader"></div>
+
+                        <div class="loading-text">
+
+                            Procesando compra...
+
+                        </div>
+                    `;
+
+                    payBtn.disabled = false;
+
+                    payBtn.innerHTML = `
+
+                        <i class="fa-solid fa-money-bill"></i>
+
+                        Pagar
+                    `;
+
+                }, 2500);
+
+            } catch (error) {
+
+                console.log(error);
+
+                document.getElementById(
+                    "loadingOverlay"
+                ).classList.remove(
+                    "show"
+                );
+
+                alert(
+                    "Error realizando compra"
+                );
+
+                const payBtn =
+                    document.getElementById(
+                        "payBtn"
+                    );
+
+                payBtn.disabled = false;
+
+                payBtn.innerHTML = `
+
+                    <i class="fa-solid fa-money-bill"></i>
+
+                    Pagar
+                `;
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
